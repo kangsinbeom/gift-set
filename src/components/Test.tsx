@@ -5,7 +5,13 @@ const Test = () => {
   const [test, setTest] = useInput<{ test: string }>(initialState);
   return (
     <>
-      <input type="text" name="test" onChange={setTest} value={test.test} />
+      <input
+        className="border-2 bg-slate-500"
+        type="text"
+        name="test"
+        onChange={setTest}
+        value={test.test}
+      />
     </>
   );
 };
