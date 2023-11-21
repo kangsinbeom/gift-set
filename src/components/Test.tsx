@@ -1,10 +1,11 @@
 import { useInput } from "../hooks/useInput";
 
 const Test = () => {
-  const [test, setTest] = useInput<string>("");
+  const initialState = { test: "" };
+  const [test, setTest] = useInput<{ test: string }>(initialState);
   return (
     <>
-      <input type="text" onChange={setTest} value={test} />
+      <input type="text" name="test" onChange={setTest} value={test.test} />
     </>
   );
 };
