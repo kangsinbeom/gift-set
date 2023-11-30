@@ -1,17 +1,17 @@
-import { useInput } from "../hooks/useInput";
+import { useState } from "react";
+import Modal from "./modal/Modal";
 
 const Test = () => {
-  const initialState = { test: "" };
-  const [test, setTest] = useInput<{ test: string }>(initialState);
+  const [toggle, onToggle] = useState<boolean>(false);
+
   return (
     <>
-      <input
-        className="border-2 bg-slate-500"
-        type="text"
-        name="test"
-        onChange={setTest}
-        value={test.test}
-      />
+      {toggle && (
+        <Modal onClose={() => onToggle((prev) => !prev)}>
+          <div>hello</div>
+        </Modal>
+      )}
+      <button onClick={() => onToggle((prev) => !prev)}>hi</button>
     </>
   );
 };
